@@ -1,0 +1,11 @@
+volumes:
+  - name: tls-certificates
+    projected:
+      defaultMode: 420
+      sources:
+        - secret:
+            items:
+              - key: public.crt
+                path: CAs/custom-public.crt
+            name: MY-CUSTOM-TLS
+  
